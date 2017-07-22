@@ -8,24 +8,46 @@ import time
 class Recipe:
     """A new class to hold a recipe to be built by the chef"""
     def __init__(self):
-        this.name = input("What is the title of this Recipe? ")
-        this.author = input("Who is the author? ")
-        
-        this.ingredients = {}
+        self.name = input("What is the title of this Recipe? ")
+        self.author = input("Who is the author? ")
+        self.description = input("Please give a description: ")
+        self.cooktime = input("Approximate cook time? ")
+        self.ingredients = {}
+        self.date = time.strftime("%d/%m/%y")
         while True:
             more = input("Do you have an ingredient to add?")
             more = more.lower()
             if more == "yes":
                 ingredient = input("What is the name of the ingredient? ")
                 quantity = input("How much " + ingredient + " do you use?")
-                this.ingredients[ingredient] = quantity
+                self.ingredients[ingredient] = quantity
             elif more == "no":
                 break
             else:
-                print("I did not understand please say (yes/no)"
+                print("I did not understand please say (yes/no)")
+
+        self.steps = step.Step()
 
 
+    def genDict(self):
+        """Convert the recipe to a dictionary"""
+        outDict = {}
+        outDict["name"] = self.name
+        outDict["author"] = self.author
+        outDict["descript"] = self.description
+        outDict["cooktime"] = self.cooktime
+        outDict["ingredients"] = self.ingredients
+        outDict["steps"] = self.steps.genDict()
+        outDict["date"] = self.date
+        return outDict
 
-        this.steps = Step()
-        this.date = time.strftime("%d/%m/%y")
+
+def main():
+    x = Recipe()
+    print(x.genDict())
+
+if __name__ == "__main__":
+    main()
+
+
 

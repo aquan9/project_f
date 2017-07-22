@@ -32,12 +32,12 @@ class Step():
                 #print("---Path---")
             print(child.instruction)
 
-    def buildDictionary(self):
+    def genDict(self):
         """Post-order traversal to build a nested dictionary of instructions"""
         outputDict = {}
         for child in self.children:
             if child.children:
-                outputDict[child.instruction] = child.buildDictionary()
+                outputDict[child.instruction] = child.genDict()
             else:
                 outputDict[child.instruction] = "leaf"
 
@@ -48,7 +48,7 @@ class Step():
 def main():
     chicken_soup_steps = Step()
     chicken_soup_steps.postOrderTrav()
-    print(chicken_soup_steps.buildDictionary())
+    print(chicken_soup_steps.genDict())
 
 if __name__ == "__main__":
     main()
