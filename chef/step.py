@@ -32,10 +32,23 @@ class Step():
                 #print("---Path---")
             print(child.instruction)
 
+    def buildDictionary(self):
+        """Post-order traversal to build a nested dictionary of instructions"""
+        outputDict = {}
+        for child in self.children:
+            if child.children:
+                outputDict[child.instruction] = child.buildDictionary()
+            else:
+                outputDict[child.instruction] = "leaf"
+
+        return outputDict
+
+
 #Testing for the step class
 def main():
     chicken_soup_steps = Step()
     chicken_soup_steps.postOrderTrav()
+    print(chicken_soup_steps.buildDictionary())
 
 if __name__ == "__main__":
     main()
