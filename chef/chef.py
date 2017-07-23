@@ -13,7 +13,7 @@ def main():
             outDict = recipe.Recipe().genDict()
             filename = outDict["name"].replace(" ", "-") + ".json"
             with open(filename, 'w') as outfile:
-                json.dump(outDict, outfile)
+                json.dump(outDict, outfile, indent=4)
         elif more == "no":
             print("Have a nice day!")
             return
