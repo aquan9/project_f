@@ -1,0 +1,21 @@
+{
+    "name": "test title",
+    "author": "Andres quan",
+    "descript": "test descript",
+    "cooktime": "20min",
+    "ingredients": {
+        "carrots": "2",
+        "eggs": "5"
+    },
+    "steps": {
+        "Add carrots": {
+            "chop carrots": "leaf"
+        },
+        "Add egg": {
+            "cook egg": {
+                "add salt and pepper to egg": "leaf"
+            }
+        }
+    },
+    "date": "23/07/17"
+}

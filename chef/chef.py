@@ -11,7 +11,7 @@ def main():
         more = input("Would you like to create a new recipe? ")
         if more == "yes":
             outDict = recipe.Recipe().genDict()
-            filename = outDict["name"].replace(" ", "-") + ".json"
+            filename = "recipes/"+ outDict["name"].replace(" ", "-") + ".json"
             with open(filename, 'w') as outfile:
                 json.dump(outDict, outfile, indent=4)
         elif more == "no":
